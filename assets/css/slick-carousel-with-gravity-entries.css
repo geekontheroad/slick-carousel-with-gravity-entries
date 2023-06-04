@@ -1,0 +1,54 @@
+.gotr-rating-wrapper{
+    width:100%;
+    padding-top: 20px;
+    text-align:center;
+}
+.gotr-rating-carousel {
+    width:90%;
+    margin:0px auto;
+}
+.gotr-rating-carousel .slick-slide {
+    margin:10px;    
+    padding: 1em;
+    text-align: left;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+}
+
+.gotr-rating-carousel.dark-mode .slick-slide {
+  background-color: #535353;
+  border-color: #535353;
+}
+  
+.gotr-rating-carousel .slick-slide hr {
+    margin-top: 10px;
+    margin-bottom :10px;
+    opacity: .5;
+}
+  
+.gotr-rating-wrapper .slick-dots {
+    margin-left: 0 !important;
+}
+  
+.gotr-rating-wrapper .slick-dots li button:before {
+    font-size:20px;
+    color:white;
+}
+  
+.gotr-rating-carousel .slick-slide .rating-stars {
+    display:flex;
+    margin-top: 10px;
+}
+  
+.gotr-rating-carousel .slick-slide .rating-description, .gotr-rating-carousel .slick-slide .rating-details {
+    font-size: 18px;
+}
+  
+.gotr-rating-carousel .slick-slide .rating-details {
+    font-weight: bold;
+    line-height: 18px;
+}
+  
+.gotr-rating-carousel .slick-slide .company-details {
+    line-height: 1.2;
+}
