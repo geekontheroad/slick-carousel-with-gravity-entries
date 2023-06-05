@@ -1,0 +1,8 @@
+= 1.0.4 = 
+Added slick locally
+Fixed arrows not showing
+
+= 1.0.3 =
+Updated Slick version to latest
+
+v1.0 Initial Public Release

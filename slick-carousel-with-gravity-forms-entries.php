@@ -3,13 +3,13 @@
 * Plugin Name: Slick Reviews Carousel displaying Gravity Forms Entry data
 * Plugin URI: https://www.geekontheroad.com
 * Description: Adds a shortcode that will output a slick carousel using entry data from gravity forms
-* Version: 1.0
+* Version: 1.0.4
 * Author: Johan d'Hollander
 * Author URI: https://www.geekontheroad.com
 **/
 
 //define plugin constants
-define( 'GOTR_SLICK_GRAVITY_CAROUSEL_VERSION', '1.0.2' );
+define( 'GOTR_SLICK_GRAVITY_CAROUSEL_VERSION', '1.0.4' );
 define( 'GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL', plugin_dir_url(__FILE__) );
 
 //load plugin
@@ -46,14 +46,19 @@ class Gotr_Slick_Gravity_Reviews_Carousel_Bootstrap {
         $dir = plugin_dir_url(__FILE__);
 
         // Register Slick Carousel JS from a CDN
-        wp_register_script( 'slick-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js', array( 'jquery' ), '1.5.8', true );
+        //wp_register_script( 'slick-carousel', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.js', array( 'jquery' ), '1.5.8', true );
+
+        wp_register_script( 'slick-carousel', GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL . 'assets/slick/slick.js', array( 'jquery' ), '1.8.1', true );
         
         //Register our local JS to init Slick
         wp_register_script( 'gotr-slick-gravity-scripts', GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL . 'assets/js/slick-carousel-with-gravity-entries.js', array( 'jquery' ), GOTR_SLICK_GRAVITY_CAROUSEL_VERSION, true );
 
         // Enqueue Slick Carousel CSS from CDN        
-        wp_register_style( 'slick-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css' , array(), '1.5.8', 'all' );
-        wp_register_style( 'slick-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css', array(), '1.5.8', 'all' );
+        //wp_register_style( 'slick-carousel-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css' , array(), '1.5.8', 'all' );
+        //wp_register_style( 'slick-carousel-theme-css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css', array(), '1.5.8', 'all' );
+
+        wp_register_style( 'slick-carousel-css', GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL . 'assets/slick/slick.css', array(), '1.8.1', 'all' );
+        wp_register_style( 'slick-carousel-theme-css', GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL . 'assets/slick/slick-theme.css', array(), '1.8.1', 'all' );
 
         //register our local style
         wp_register_style( 'gotr-slick-gravity-styles', GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL . 'assets/css/slick-carousel-with-gravity-entries.css', array(), GOTR_SLICK_GRAVITY_CAROUSEL_VERSION, 'all' );
