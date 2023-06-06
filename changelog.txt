@@ -1,3 +1,6 @@
+= 1.0.5 = 
+Added support for gravatar images based on an email field
+
 = 1.0.4 = 
 Added slick locally
 Fixed arrows not showing

@@ -3,13 +3,13 @@
 * Plugin Name: Slick Reviews Carousel displaying Gravity Forms Entry data
 * Plugin URI: https://www.geekontheroad.com
 * Description: Adds a shortcode that will output a slick carousel using entry data from gravity forms
-* Version: 1.0.4
+* Version: 1.0.6
 * Author: Johan d'Hollander
 * Author URI: https://www.geekontheroad.com
 **/
 
 //define plugin constants
-define( 'GOTR_SLICK_GRAVITY_CAROUSEL_VERSION', '1.0.4' );
+define( 'GOTR_SLICK_GRAVITY_CAROUSEL_VERSION', '1.0.6' );
 define( 'GOTR_SLICK_GRAVITY_CAROUSEL_FILE_URL', plugin_dir_url(__FILE__) );
 
 //load plugin
@@ -88,6 +88,7 @@ class Gotr_Slick_Gravity_Reviews_Carousel_Bootstrap {
                 'company' => false,
                 'function'=> false,
                 "url"     => false,
+                "email"   => false,
                 "conditional" => false,
                 "conditional_field" => false,
                 "conditional_value" => false,
@@ -169,13 +170,21 @@ class Gotr_Slick_Gravity_Reviews_Carousel_Bootstrap {
                 <div class="rating-description">
                     <?php echo esc_html($rating[$args["text"]]); ?>
                 </div>
-                <hr> 
-                <div class="rating-details"><?php echo $rating[$args["name"].".3"] . " " . $rating[$args["name"].".6"]; ?></div>
-                <?php if($company_name && $company_function) {  ?>
-                <div class="company-details">
-                    <?php echo sprintf('%s at <a href="%s" target="_blank">%s</a>', $company_function, $company_link, $company_name); ?>
+
+                <hr>  
+                           
+                <div class="rating-details">
+                    <img src="<?php echo get_avatar_url($rating[$args["email"]],['size' => '40']); ?>" class="rating-avatar">
+                    <?php echo "<p><span>".$rating[$args["name"].".3"] . " " . $rating[$args["name"].".6"] . "</span>"; ?>
+
+                    <?php 
+                        if($company_name && $company_function) {
+                            echo  sprintf('<span class="company-details">%s at <a href="%s" target="_blank">%s</a></span></p>', $company_function, $company_link, $company_name); 
+                        }
+                    ?>
+                        
                 </div>
-                <?php } ?>			
+                		
                 <div class="rating-stars"><?php echo $self::gotr_gravity_get_star_rating_html($survey_value) ?></div>
             </div> 
     
